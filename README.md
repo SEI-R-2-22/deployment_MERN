@@ -4,9 +4,9 @@
 
 ## Objectives
 
-- Deploy server to heroku
+- Deploy server to Heroku
 - Deploy database to MongoDB Atlas
-- Deploy react app to either Netlify or Heroku
+- Deploy React app to either Netlify or Heroku
 
 ## Disclaimer
 
@@ -66,7 +66,7 @@ Select `connect your application`:
 
 ![](images/connection-url.png)
 
-Copy the connection url, do not lose this!
+Copy the connection URL, do not lose this!
 
 ## Wiring Up Our Code
 
