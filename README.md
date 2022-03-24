@@ -95,16 +95,16 @@ In your `server.js`:
 
 - > Telling Express to serve our react app:
   >
-  > **NOTE**: **This should be added after your middleware and above `app.listen`**
+  > **NOTE**: **This should be added with your other middleware**
   >
   > ```js
-  > if (process.env.NODE_ENV === 'production') {
-  >   app.use(express.static(path.join(__dirname, 'client/build')))
-  >   app.get('*', (req, res) => {
-  >     res.sendFile(path.join(`${__dirname}/client/build/index.html`))
-  >   })
-  > }
+  > app.use(express.static(`${__dirname}/client/build`))
   > ```
+  >**NOTE**: **This should be added just before `app.listen`**
+  > ```js
+  >app.get('/*', (req, res) => {
+  >  res.sendFile(`${__dirname}/client/build/index.html`)
+  >})
 
 Modify your `db/index.js` to the following:
 
@@ -133,15 +133,12 @@ Next, in your `package.json` for your **server**, add a **new** script in your `
     "build": "cd client && rm -rf build && npm install && npm run build"
 ```
 
-## Pointing The Client To Our API
+## Proxy requests in development to server
 
-In `client/src/globals`, modify your `BASE_URL`:
+In `client/package.json` add just above `"scripts": {`
 
 ```js
-export const BASE_URL =
-  process.env.NODE_ENV === 'production'
-    ? `${window.location.origin}/api`
-    : 'http://localhost:3001/api'
+"proxy": "http://localhost:3001",
 ```
 
 ## Initializing A Heroku App
