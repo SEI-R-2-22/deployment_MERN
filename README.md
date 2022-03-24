@@ -87,11 +87,6 @@ touch .env
 
 In your `server.js`:
 
-- > Require path from `path`:
-  >
-  > ```js
-  > const path = require('path')
-  > ```
 
 - > Telling Express to serve our react app:
   >
@@ -105,6 +100,7 @@ In your `server.js`:
   >app.get('/*', (req, res) => {
   >  res.sendFile(`${__dirname}/client/build/index.html`)
   >})
+  
 
 Modify your `db/index.js` to the following:
 
