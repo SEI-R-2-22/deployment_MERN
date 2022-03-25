@@ -139,6 +139,12 @@ In `client/package.json` add just above `"scripts": {`
 
 ## Initializing A Heroku App
 
+To install Heroku, enter this in your terminal
+```
+brew tap heroku/brew && brew install heroku
+```
+
+
 In your project folder type in the following command:
 
 ```sh
@@ -150,6 +156,9 @@ This will create a Heroku app for you.
 Next, we'll add our MongoDB connection string to Heroku for our Atlas Database:
 
 **Replace `<your password>` and `<dbname>` with the user password for your database and database name, respectively. Remember, these must be an exact match.**
+
+
+Enter this in your terminal command line
 
 ```sh
 heroku config:set MONGODB_URI='mongodb+srv://<username>:<database_password>@<cluster>.i57hr.mongodb.net/<database_name>?retryWrites=true&w=majority'
